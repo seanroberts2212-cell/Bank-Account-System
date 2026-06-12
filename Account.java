@@ -33,7 +33,11 @@ public class Account {
     }
 
     public void deposit(double a) {
-        balance += a;
+        if (a > 0) {
+            balance += a;
+        } else {
+            System.out.print("Deposit must be positive");
+        }
     }
     
     public void withdraw(double b) {
@@ -44,10 +48,10 @@ public class Account {
         }
     }
 
+    @Override
     public void printDetails() {
-        System.out.println("Account Name: " + customerName);
-        System.out.println("Account Number: " + accountID);
-        System.out.println("Balance: " + balance);
+        super.printDetails();
+        System.out.print("Interest Rate: " + interest);
 
     }
 }
